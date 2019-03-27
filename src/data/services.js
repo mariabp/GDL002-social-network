@@ -100,7 +100,7 @@ const SERVICES = {
             "Guarderia",
             "Estetica",
             "Transporte",
-            "Venta de alimento"        
+            "Venta de alimento"
         ]
     }, {
         "num" : 5,
