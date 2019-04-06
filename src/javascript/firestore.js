@@ -19,6 +19,7 @@ const suggestForm = document.querySelector('#suggestform');
 
 const reviewContainer = document.querySelector('#reviewcontainer');
 
+const db = firebase.firestore();
 //Función que muestra elementos según la categoría seleccionada
 
 const showCategory = (event) => {
@@ -93,38 +94,6 @@ const showCategory = (event) => {
 
 		};
 
-		const validateReview = () => {
-
-			if (opinion.value.length < 1) {
-
-				opinion.placeholder = "Tu opinión no puede estar vacía"
-				opinion.style.background = 'rgb(255, 153, 153)';
-
-			} else {
-
-				opinion.style.background = 'rgb(255, 255, 255)'
-				sendReview();
-
-			}
-		};
-
-		const sendReview = () => {
-
-			db.collection('reviews').add({
-
-                opinion: rateForm.opinion.value,
-                name : primaryInfo.name
-
-			});
-
-			opinion.value = '';
-			opinion.placeholder = '¡Gracias por tu valioso aporte!';
-			opinionTitle.style.display = 'none';
-			submitBtn.style.display = 'none';
-			veracityCheck.style.display = 'none';
-
-		};
-
 		let cardInfo = document.createElement('div');
 		cardInfo.setAttribute('class', 'cardinfolayout');
 
@@ -134,7 +103,8 @@ const showCategory = (event) => {
 		let leftbar = document.createElement('div');
 		leftbar.setAttribute('id', 'leftbar');
 
-		let name = document.createElement('div');
+        let name = document.createElement('div');
+        name.setAttribute('name', 'name');
 		name.setAttribute('id', 'name');
 		name.innerHTML = doc.data().name;
 
@@ -236,6 +206,41 @@ const showCategory = (event) => {
 
 		cardInfo.appendChild(secondaryInfo);
 
+/*
+		const validateReview = () => {
+
+			if (opinion.value.length < 1) {
+
+				opinion.placeholder = "Tu opinión no puede estar vacía"
+				opinion.style.background = 'rgb(255, 153, 153)';
+
+			} else {
+
+				opinion.style.background = 'rgb(255, 255, 255)';
+				sendReview();
+
+			}
+		};
+*/
+        const sendReview = () => {
+
+            db.collection('reviews').add({
+
+                opinion: rateForm.opinion.value,
+                name: doc.data().name
+
+            });
+
+            opinion.value = '';
+			opinion.placeholder = '¡Gracias por tu valioso aporte!';
+			opinionTitle.style.display = 'none';
+			submitBtn.style.display = 'none';
+			veracityCheck.style.display = 'none';
+
+        };
+
+
+
 		//Elementos de RateForm
 		let rateForm = document.createElement('form');
 		rateForm.setAttribute('id', 'rateform');
@@ -271,7 +276,7 @@ const showCategory = (event) => {
 		submitBtn.setAttribute('id', 'btnsubmit');
 		submitBtn.setAttribute('type', 'button');
 		submitBtn.setAttribute('value', 'Enviar');
-		submitBtn.addEventListener('click', validateReview);
+		submitBtn.addEventListener('click', sendReview);
 
 		rateForm.appendChild(submitBtn);
 		veracityCheck.appendChild(checkbox);
