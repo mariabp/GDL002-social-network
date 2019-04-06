@@ -19,6 +19,7 @@ const suggestForm = document.querySelector('#suggestform');
 
 const reviewContainer = document.querySelector('#reviewcontainer');
 
+const db = firebase.firestore();
 //Función que muestra elementos según la categoría seleccionada
 
 const showCategory = (event) => {
@@ -41,47 +42,75 @@ const showCategory = (event) => {
 
 		const showReviews = () => {
 
-			const renderReviewCard = (reviewsdoc) => {
+            reviewContainer.innerHTML = '';
 
-				let editBtn = document.createElement('div');
-				editBtn.setAttribute('id', 'btnedit');
-				editBtn.innerHTML = '<i class="far fa-edit fa-xs"></i>';
+			const renderReviewCard = (element) => {
 
-				let authorInfo = document.createElement('div');
-				authorInfo.setAttribute('id', 'authorinfo');
-				authorInfo.innerHTML = 'Fulanita de tal escribió: ';
-	
-				let writtenReview = document.createElement('div');
-				writtenReview.setAttribute('id', 'writtenreview');
-				writtenReview.innerHTML = reviewsdoc.data().opinion;
-	
-	
-				reviewContainer.appendChild(editBtn);
-				reviewContainer.appendChild(authorInfo);
-				reviewContainer.appendChild(writtenReview);
-				cardInfo.appendChild(reviewContainer);
-			
-			};
+                let singleReview = document.createElement('div');
+                singleReview.setAttribute('id', 'singlereview');
+                singleReview.setAttribute('data-id', element.id);
 
-			db.collection('reviews').get().then((snapshotreviews) => {
-		
-				snapshotreviews.forEach((reviewsdoc) => {
-		
-					if (reviewsdoc.data().name === doc.data().name) {
-						renderReviewCard(reviewsdoc);
-					}
-		
-				});
-		
-			});
 
-			if (reviewContainer.style.display === 'grid') {
-				reviewContainer.style.display = 'none';
-			} else {
-				reviewContainer.style.display = 'grid';
-			}
+                let editBtn = document.createElement('div');
+                editBtn.setAttribute('id', 'btnedit');
+                editBtn.innerHTML = '<i class="fas fa-pen fa-xs"></i>';
 
-		};
+                let deleteBtn = document.createElement('div');
+                deleteBtn.setAttribute('id', 'btndelete');
+                deleteBtn.innerHTML = '<i class="fas fa-trash-alt fa-xs"></i>';
+
+                let authorInfo = document.createElement('div');
+                authorInfo.setAttribute('id', 'authorinfo');
+                authorInfo.innerHTML = 'Un usuario escribió: '
+
+                let writtenReview = document.createElement('div');
+                writtenReview.setAttribute('id', 'writtenreview');
+                writtenReview.innerHTML = element.data().opinion;
+
+                singleReview.appendChild(editBtn);
+                singleReview.appendChild(deleteBtn);
+                singleReview.appendChild(authorInfo);
+                singleReview.appendChild(writtenReview);
+                reviewContainer.appendChild(singleReview);
+                cardInfo.appendChild(reviewContainer);
+
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    let id = element.id;
+                    //console.log(id);
+                    db.collection('reviews').doc(id).delete();
+                    showReviews();
+                });
+
+            };
+
+            db.collection('reviews').get().then((snapshotreviews) => {
+
+                let selectedReviews = [];
+
+                snapshotreviews.forEach((reviewsdoc) => {
+
+                    if (reviewsdoc.data().name === doc.data().name) {
+                        selectedReviews.push(reviewsdoc);
+                    }
+
+                });
+
+                selectedReviews.forEach((element) => {
+
+                    renderReviewCard(element);
+
+                });
+
+            });
+
+            if (reviewContainer.style.display === 'grid') {
+                reviewContainer.style.display = 'none';
+            } else {
+                reviewContainer.style.display = 'grid';
+            }
+
+    };
 
 		const showRateForm = () => {
 
@@ -90,38 +119,6 @@ const showCategory = (event) => {
 			} else {
 				rateForm.style.display = 'grid';
 			}
-
-		};
-
-		const validateReview = () => {
-
-			if (opinion.value.length < 1) {
-
-				opinion.placeholder = "Tu opinión no puede estar vacía"
-				opinion.style.background = 'rgb(255, 153, 153)';
-
-			} else {
-
-				opinion.style.background = 'rgb(255, 255, 255)'
-				sendReview();
-
-			}
-		};
-
-		const sendReview = () => {
-
-			db.collection('reviews').add({
-
-                opinion: rateForm.opinion.value,
-                name : primaryInfo.name
-
-			});
-
-			opinion.value = '';
-			opinion.placeholder = '¡Gracias por tu valioso aporte!';
-			opinionTitle.style.display = 'none';
-			submitBtn.style.display = 'none';
-			veracityCheck.style.display = 'none';
 
 		};
 
@@ -134,7 +131,8 @@ const showCategory = (event) => {
 		let leftbar = document.createElement('div');
 		leftbar.setAttribute('id', 'leftbar');
 
-		let name = document.createElement('div');
+        let name = document.createElement('div');
+        name.setAttribute('name', 'name');
 		name.setAttribute('id', 'name');
 		name.innerHTML = doc.data().name;
 
@@ -236,6 +234,41 @@ const showCategory = (event) => {
 
 		cardInfo.appendChild(secondaryInfo);
 
+
+		const validateReview = () => {
+
+			if (opinion.value.length < 1) {
+
+				opinion.placeholder = "Tu opinión no puede estar vacía"
+				opinion.style.background = 'rgb(255, 153, 153)';
+
+			} else {
+
+				opinion.style.background = 'rgb(255, 255, 255)';
+				sendReview();
+
+			}
+		};
+
+        const sendReview = () => {
+
+            db.collection('reviews').add({
+
+                opinion: rateForm.opinion.value,
+                name: doc.data().name
+
+            });
+
+            opinion.value = '';
+			opinion.placeholder = '¡Gracias por tu valioso aporte!';
+			opinionTitle.style.display = 'none';
+			submitBtn.style.display = 'none';
+			veracityCheck.style.display = 'none';
+
+        };
+
+
+
 		//Elementos de RateForm
 		let rateForm = document.createElement('form');
 		rateForm.setAttribute('id', 'rateform');
@@ -271,7 +304,7 @@ const showCategory = (event) => {
 		submitBtn.setAttribute('id', 'btnsubmit');
 		submitBtn.setAttribute('type', 'button');
 		submitBtn.setAttribute('value', 'Enviar');
-		submitBtn.addEventListener('click', validateReview);
+		submitBtn.addEventListener('click', sendReview);
 
 		rateForm.appendChild(submitBtn);
 		veracityCheck.appendChild(checkbox);

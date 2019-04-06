@@ -10,7 +10,3 @@ let config = {
 
 //Declare vendors database as db
 firebase.initializeApp(config);
-const db = firebase.firestore();
-db.settings({
-    timestampsInSnapshots: true,
-});
