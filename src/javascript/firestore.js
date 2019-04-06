@@ -51,17 +51,22 @@ const showCategory = (event) => {
 
                 let editBtn = document.createElement('div');
                 editBtn.setAttribute('id', 'btnedit');
-                editBtn.innerHTML = '<i class="far fa-edit fa-xs"></i>';
+                editBtn.innerHTML = '<i class="fas fa-pen fa-xs"></i>';
+
+                let deleteBtn = document.createElement('div');
+                deleteBtn.setAttribute('id', 'btndelete');
+                deleteBtn.innerHTML = '<i class="fas fa-trash-alt fa-xs"></i>';
 
                 let authorInfo = document.createElement('div');
                 authorInfo.setAttribute('id', 'authorinfo');
-                authorInfo.innerHTML = 'Fulanita de tal escribió: ';
+                authorInfo.innerHTML = 'Un usuario escribió: ';
 
                 let writtenReview = document.createElement('div');
                 writtenReview.setAttribute('id', 'writtenreview');
                 writtenReview.innerHTML = element.data().opinion;
 
                 singleReview.appendChild(editBtn);
+                singleReview.appendChild(deleteBtn);
                 singleReview.appendChild(authorInfo);
                 singleReview.appendChild(writtenReview);
                 reviewContainer.appendChild(singleReview);
