@@ -42,47 +42,60 @@ const showCategory = (event) => {
 
 		const showReviews = () => {
 
-			const renderReviewCard = (reviewsdoc) => {
+            reviewContainer.innerHTML = '';
 
-				let editBtn = document.createElement('div');
-				editBtn.setAttribute('id', 'btnedit');
-				editBtn.innerHTML = '<i class="far fa-edit fa-xs"></i>';
+			const renderReviewCard = (element) => {
 
-				let authorInfo = document.createElement('div');
-				authorInfo.setAttribute('id', 'authorinfo');
-				authorInfo.innerHTML = 'Fulanita de tal escribió: ';
-	
-				let writtenReview = document.createElement('div');
-				writtenReview.setAttribute('id', 'writtenreview');
-				writtenReview.innerHTML = reviewsdoc.data().opinion;
-	
-	
-				reviewContainer.appendChild(editBtn);
-				reviewContainer.appendChild(authorInfo);
-				reviewContainer.appendChild(writtenReview);
-				cardInfo.appendChild(reviewContainer);
-			
-			};
+                let singleReview = document.createElement('div');
+                singleReview.setAttribute('id', 'singlereview');
 
-			db.collection('reviews').get().then((snapshotreviews) => {
-		
-				snapshotreviews.forEach((reviewsdoc) => {
-		
-					if (reviewsdoc.data().name === doc.data().name) {
-						renderReviewCard(reviewsdoc);
-					}
-		
-				});
-		
-			});
+                let editBtn = document.createElement('div');
+                editBtn.setAttribute('id', 'btnedit');
+                editBtn.innerHTML = '<i class="far fa-edit fa-xs"></i>';
 
-			if (reviewContainer.style.display === 'grid') {
-				reviewContainer.style.display = 'none';
-			} else {
-				reviewContainer.style.display = 'grid';
-			}
+                let authorInfo = document.createElement('div');
+                authorInfo.setAttribute('id', 'authorinfo');
+                authorInfo.innerHTML = 'Fulanita de tal escribió: ';
 
-		};
+                let writtenReview = document.createElement('div');
+                writtenReview.setAttribute('id', 'writtenreview');
+                writtenReview.innerHTML = element.data().opinion;
+
+                singleReview.appendChild(editBtn);
+                singleReview.appendChild(authorInfo);
+                singleReview.appendChild(writtenReview);
+                reviewContainer.appendChild(singleReview);
+                cardInfo.appendChild(reviewContainer);
+
+            };
+
+            db.collection('reviews').get().then((snapshotreviews) => {
+
+                let selectedReviews = [];
+
+                snapshotreviews.forEach((reviewsdoc) => {
+
+                    if (reviewsdoc.data().name === doc.data().name) {
+                        selectedReviews.push(reviewsdoc);
+                    }
+
+                });
+
+                selectedReviews.forEach((element) => {
+
+                    renderReviewCard(element);
+
+                });
+
+            });
+
+            if (reviewContainer.style.display === 'grid') {
+                reviewContainer.style.display = 'none';
+            } else {
+                reviewContainer.style.display = 'grid';
+            }
+
+    };
 
 		const showRateForm = () => {
 
@@ -206,7 +219,7 @@ const showCategory = (event) => {
 
 		cardInfo.appendChild(secondaryInfo);
 
-/*
+
 		const validateReview = () => {
 
 			if (opinion.value.length < 1) {
@@ -221,7 +234,7 @@ const showCategory = (event) => {
 
 			}
 		};
-*/
+
         const sendReview = () => {
 
             db.collection('reviews').add({
