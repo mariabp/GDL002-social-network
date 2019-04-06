@@ -48,6 +48,8 @@ const showCategory = (event) => {
 
                 let singleReview = document.createElement('div');
                 singleReview.setAttribute('id', 'singlereview');
+                singleReview.setAttribute('data-id', element.id);
+
 
                 let editBtn = document.createElement('div');
                 editBtn.setAttribute('id', 'btnedit');
@@ -59,7 +61,7 @@ const showCategory = (event) => {
 
                 let authorInfo = document.createElement('div');
                 authorInfo.setAttribute('id', 'authorinfo');
-                authorInfo.innerHTML = 'Un usuario escribió: ';
+                authorInfo.innerHTML = 'Un usuario escribió: '
 
                 let writtenReview = document.createElement('div');
                 writtenReview.setAttribute('id', 'writtenreview');
@@ -71,6 +73,14 @@ const showCategory = (event) => {
                 singleReview.appendChild(writtenReview);
                 reviewContainer.appendChild(singleReview);
                 cardInfo.appendChild(reviewContainer);
+
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    let id = element.id;
+                    //console.log(id);
+                    db.collection('reviews').doc(id).delete();
+                    showReviews();
+                });
 
             };
 
