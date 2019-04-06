@@ -131,3 +131,4 @@ document.querySelector('#logOut').addEventListener('click', () => {
 			// An error happened.
 		});
 });
+

@@ -5,7 +5,8 @@ let config = {
     databaseURL: 'https://social-network-ef8fe.firebaseio.com',
     projectId: 'social-network-ef8fe',
     storageBucket: 'gs://social-network-ef8fe.appspot.com/',
-    messagingSenderId: '676810242509'
+    messagingSenderId: '676810242509',
 };
 
+//Declare vendors database as db
 firebase.initializeApp(config);
