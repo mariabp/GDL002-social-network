@@ -23,6 +23,13 @@ body {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
 /* main {
 
     display: grid;
@@ -41,7 +48,7 @@ body {
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: #181818;
+    background-color: rgba(24, 24, 24, 1);
     overflow-x: hidden;
     padding-top: 1.25rem;
     transition: 0.5s;
@@ -63,7 +70,7 @@ body {
 /* Close sidenav menu button */
 
 .menuCloseBtn {
-    color: #818181;
+    color: rgba(129, 129, 129, 1);
     top: 0;
     right: 1.5rem;
     font-size: 2.25rem;
@@ -73,7 +80,7 @@ body {
 }
 
 .sidenavItem {
-    color: #818181;
+    color: rgba(129, 129, 129, 1);
     top: 0;
     right: 1.5rem;
     font-size: 15pt;
@@ -88,7 +95,7 @@ body {
 .dropdown-btn {
     padding: 1.5rem 0.5rem 1.5rem 1rem;
     font-size: 12pt;
-    color: #818181;
+    color: rgba(129, 129, 129, 1);
     display: block;
     border: none;
     background: none;
@@ -103,7 +110,7 @@ body {
 .subm {
     padding: 1.5rem 0.5rem 1.5rem 1rem;
     font-size: 12pt;
-    color: #818181;
+    color: rgba(129, 129, 129, 1);
     display: block;
     border: none;
     background: none;
@@ -117,30 +124,30 @@ body {
 
 
 #suggestPlace {
-    /* background-color: #be216c; */
-    color: #818181;
+    /* background-color: rgba(190, 33, 108, 1); */
+    color: rgba(129, 129, 129, 1);
     background-color: rgba(190, 33, 108, 0.2);
 }
 
 #logOut:hover {
-    background-color: #e19b38;
+    background-color: rgba(225, 155, 56, 1);
 }
 
 #suggestPlace:hover {
-    color: #f1f1f1;
-    background-color: #be216c;
+    color: rgba(241, 241, 241, 1);
+    background-color: rgba(190, 33, 108, 1);
 }
 
 .sidenavItem:hover,
 .dropdown-btn:hover {
-    color: #f1f1f1;
-    background-color: #c1d93a;
+    color: rgba(241, 241, 241, 1);
+    background-color: rgba(193, 217, 58, 1);
 
 }
 
 .subm:hover {
-    background-color: #e19b38;
-    color: #f1f1f1;
+    background-color: rgba(225, 155, 56, 1);
+    color: rgba(241, 241, 241, 1);
 }
 
 /* Sidenav Menu Dropdown */
