@@ -5,7 +5,7 @@
 
     grid-template-areas: "header header header header header header header header"
         ". . . . . . . ."
-        ". mainimage mainimage mainimage mainimage mainimage mainimage ."
+        "mainimage mainimage mainimage mainimage mainimage mainimage mainimage mainimage"
         ". categories categories categories categories categories categories ."
         ". . . . . . . ."
         ". feed feed feed feed feed feed ."

@@ -27,17 +27,18 @@ const app = {
     },
     poppin: function(ev) {
         ev && ev.preventDefault();
-        console.log(location.hash, 'popstate event');
+        // console.log(location.hash, 'popstate event');
         let hash = location.hash.replace('#', '');
-        console.log(document.querySelector('.active'), 'document.querySelector(.active)');
+        // console.log(document.querySelector('.active'), 'document.querySelector(.active)');
         document.querySelector('.active').classList.remove('active');
         document.getElementById(hash).classList.add('active');
-        console.log(hash);
+        // console.log(hash);
         //history.pushState({}, currentPage, `#${currentPage}`);
         document.getElementById(hash).dispatchEvent(app.show);
     },
 };
 document.addEventListener('DOMContentLoaded', app.init);
+
 //--------------Searchbar & Menu --------------------------------
 const searchBtn = document.querySelector('#btnsearch').value;
 const searchInput = document.querySelector('#searchbar').value;
