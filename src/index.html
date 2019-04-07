@@ -20,67 +20,62 @@
         <link rel="stylesheet" type="text/css" href="styles/card.css" />
         <link rel="stylesheet" type="text/css" href="styles/reviews-rate.css" />
         <link rel="stylesheet" type="text/css" href="styles/register.css" />
-        <link rel="stylesheet" type="text/css" href="styles/userlogin.css" />
-        <link rel="stylesheet" type="text/css" href="styles/faq.css" />
-        <link rel="stylesheet" type="text/css" href="styles/suggestscreen.css" />
-        <link rel="stylesheet" type="text/css" href="styles/devices.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="styles/userlogin.css" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="styles/faq.css" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="styles/suggestscreen.css" />
+        <link rel="stylesheet" type="text/css" href="styles/devices.css" /> -->
     </head>
+
+    <header>
+        <!-------- Nav bar  ------->
+        <button class="headerelements btnmenu" id="btnmenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <input id="searchbar" class="headerelements" placeholder="Busca aquí lo que necesites" />
+        <div id="btnsearch" class="headerelements"><i class="fas fa-search"></i></div>
+        <!----- Sidenav dropdown  ----->
+        <div id="sidenavMenu" class="sidenav">
+            <a href="javascript:void(0)" class="menuCloseBtn" id="menuCloseBtn"> &times; </a>
+            <button data-target="homescreen" class="navlink sidenavItem">Inicio</button>
+            <button
+                data-target="homescreen"
+                class="navlink sidenavItem dropdown-btn"
+                id="dropdownBtn"
+            >
+                Categorías
+                <i class="fas fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-container" id="menuDropdown">
+                <button id="subhealth" data-category="health" class="subm">Salud</button>
+                <button id="subaccommodation" data-category="accommodation" class="subm">
+                    Alojamiento
+                </button>
+                <button id="subpetfriendly" data-category="petfriendly" class="subm">
+                    Lugares PetFriendly
+                </button>
+                <button id="subshopping" data-category="shopping" class="subm">
+                    Autoservicios
+                </button>
+                <button id="subeducation" data-category="education" class="subm">
+                    Educación
+                </button>
+                <button id="subnonprofit" data-category="nonprofit" class="subm">
+                    Protectoras De Animales
+                </button>
+            </div>
+            <button data-target="faqscreen" class="navlink sidenavItem">FAQ</button>
+            <button data-target="suggestscreen" class="navlink sidenavItem" id="suggestPlace">
+                Sugiere un lugar
+            </button>
+            <button class="sidenavItem" id="logOut">Cerrar Sesión</button>
+        </div>
+    </header>
 
     <body>
         <main>
-            <!----- SIDENAV MENU  ----->
-
-            <div id="sidenavMenu" class="sidenav">
-                <a href="javascript:void(0)" class="menuCloseBtn" id="menuCloseBtn"> &times; </a>
-                <button data-target="homescreen" class="navlink sidenavItem">Inicio</button>
-                <button
-                    data-target="homescreen"
-                    class="navlink sidenavItem dropdown-btn"
-                    id="dropdownBtn"
-                >
-                    Categorías
-                    <i class="fas fa-caret-down"></i>
-                </button>
-
-                <div class="dropdown-container" id="menuDropdown">
-                    <button id="subhealth" data-category="health" class="subm">Salud</button>
-                    <button id="subaccommodation" data-category="accommodation" class="subm">
-                        Alojamiento
-                    </button>
-                    <button id="subpetfriendly" data-category="petfriendly" class="subm">
-                        Lugares PetFriendly
-                    </button>
-                    <button id="subshopping" data-category="shopping" class="subm">
-                        Autoservicios
-                    </button>
-                    <button id="subeducation" data-category="education" class="subm">
-                        Educación
-                    </button>
-                    <button id="subnonprofit" data-category="nonprofit" class="subm">
-                        Protectoras De Animales
-                    </button>
-                </div>
-                <button data-target="faqscreen" class="navlink sidenavItem">FAQ</button>
-                <button data-target="suggestscreen" class="navlink sidenavItem" id="suggestPlace">
-                    Sugiere un lugar
-                </button>
-                <button class="sidenavItem" id="logOut">Cerrar Sesión</button>
-            </div>
-
             <!---------- Home screen---------->
             <div class="page" id="homescreen">
-                <header>
-                    <button class="headerelements btnmenu" id="btnmenu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <input
-                        id="searchbar"
-                        class="headerelements"
-                        placeholder="Busca aquí lo que necesites"
-                    />
-                    <div id="btnsearch" class="headerelements"><i class="fas fa-search"></i></div>
-                </header>
-
                 <!------- Slideshow -------->
                 <div id="mainimg">
                     <figure>
@@ -197,14 +192,6 @@
             <!---------- FAQ screen---------->
 
             <div class="page" id="faqscreen">
-                <header>
-                    <button class="headerelements btnmenu" id="btnmenu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <input class="headerelements" placeholder="Busca aquí lo que necesites" />
-                    <div id="btnsearch" class="headerelements"><i class="fas fa-search"></i></div>
-                </header>
-
                 <div id="faqimage"><img src="images/assets/bannerFAQMob-10.jpg" /></div>
                 <div id="faqtitle">Es normal tener dudas, permítenos responderlas</div>
 
@@ -214,14 +201,6 @@
             <!---------- Suggest a place screen---------->
 
             <div class="page" id="suggestscreen">
-                <header>
-                    <button class="headerelements btnmenu" id="btnmenu">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <input class="headerelements" placeholder="Busca aquí lo que necesites" />
-                    <div id="btnsearch" class="headerelements"><i class="fas fa-search"></i></div>
-                </header>
-
                 <div id="suggestscreentitle"><img src="images/assets/bannerSuggestMob.jpg" /></div>
                 <div id="suggestscreentext">
                     Para sugerir que aparezca un establecimiento en nuestro listado, por favor
