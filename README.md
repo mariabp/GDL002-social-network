@@ -20,7 +20,7 @@ Una vez dentro, el usuario puede buscar algún establecimiento en específico en
  - Lugares Pet Friendly
  - Tiendas de autoservicio
  - Educación
- - Rescate 
+ - Rescate
  
  Al hacer click en el botón de la categoría el usuario obtiene una lista con la información relevante de cada establecimiento: nombre, servicios destacados, número de likes.
  
