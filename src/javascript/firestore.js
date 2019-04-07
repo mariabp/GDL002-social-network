@@ -81,8 +81,21 @@ const showCategory = (event) => {
                     db.collection('reviews').doc(id).delete();
                     showReviews();
                 });
-
             };
+
+                /* real-time listener
+                db.collection('reviews').onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        console.log(change.doc.data());
+                        if(change.type == 'added'){
+                            renderReviewCard(change.doc);
+                        } else if (change.type == 'removed'){
+                            let singleReview = reviewContainer.querySelector('[element.id=' + change.element.id + ']');
+                            reviewContainer.removeChild(singleReview);
+                        }
+                    });
+                });*/
 
             db.collection('reviews').get().then((snapshotreviews) => {
 
