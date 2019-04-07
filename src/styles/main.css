@@ -9,6 +9,15 @@
 
 }
 
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 15vw 15vw 15vw 15vw 15vw 15vw 1fr;
+    grid-template-areas: ". btnmenu searchbar searchbar searchbar searchbar btnsearch .";
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -21,10 +30,8 @@ main {
     width: 100vw;
     overflow: auto;
     grid-template-columns: auto;
-    grid-template-rows: 0.5rem auto 0.5rem;
-
+    grid-template-rows: 0.5rem 3rem auto 0.5rem 2rem;
     grid-template-areas: ".""header""content"".""footer";
-
 }
 
 .sidenav {
@@ -78,7 +85,21 @@ main {
 /*Elements within sidenavBar*/
 
 .sidenavItem,
-.dropdown-btn,
+.dropdown-btn {
+    padding: 1.5rem 0.5rem 1.5rem 1rem;
+    font-size: 12pt;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
 .subm {
     padding: 1.5rem 0.5rem 1.5rem 1rem;
     font-size: 12pt;
@@ -125,17 +146,17 @@ main {
 /* Sidenav Menu Dropdown */
 
 .dropdown-container {
+    background-color: rgba(88, 76, 99, 0.205);
     display: none;
+    text-align: right;
     padding-left: 0.5rem;
     float: right;
-    margin-right: 1.5rem;
 }
 
 .showDropdownMenu {
     display: block;
     padding-left: 0.5rem;
     float: right;
-    margin-right: 1.5rem;
 }
 
 .fa-caret-down {

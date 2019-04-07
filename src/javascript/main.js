@@ -6,10 +6,10 @@ const app = {
     show: new Event('show'),
     init: function() {
         app.pages = document.querySelectorAll('.page');
-        app.pages.forEach((pg) => {
+        app.pages.forEach(pg => {
             pg.addEventListener('show', app.pageShown);
         });
-        document.querySelectorAll('.navlink').forEach((link) => {
+        document.querySelectorAll('.navlink').forEach(link => {
             link.addEventListener('click', app.nav);
         });
         history.replaceState({}, 'Home', '#homescreen');
@@ -35,7 +35,7 @@ const app = {
         console.log(hash);
         //history.pushState({}, currentPage, `#${currentPage}`);
         document.getElementById(hash).dispatchEvent(app.show);
-    }
+    },
 };
 document.addEventListener('DOMContentLoaded', app.init);
 //--------------Searchbar & Menu --------------------------------
@@ -46,10 +46,10 @@ const menuBtn = document.querySelector('#btnmenu');
 //---------------------- BUTTONS ---------------------------------
 //OPEN & CLOSE SIDENAV MENU
 document.getElementById('btnmenu').addEventListener('click', () => {
-    document.getElementById('sidenavMenu').style.width = '12.5rem';
+    document.getElementById('sidenavMenu').classList.add('open');
 });
 document.getElementById('menuCloseBtn').addEventListener('click', () => {
-    document.getElementById('sidenavMenu').style.width = '0rem';
+    document.getElementById('sidenavMenu').classList.remove('open');
 });
 //OPEN SIDEMENU DROPDOWN
 document.getElementById('dropdownBtn').addEventListener('click', () => {
