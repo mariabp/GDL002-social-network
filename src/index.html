@@ -202,7 +202,42 @@
                 <div id="faqimage"><img src="images/assets/bannerFAQMob1.jpg" /></div>
                 <div id="faqtitle">Es normal tener dudas, permítenos responderlas</div>
 
-                <div class="faqcontainer" id="faqtext"></div>
+                <div class="faqcontainer" id="faqtext">
+                    <h1>¿Qué es Póogle?</h1>
+                    <p>
+                        Poogle es la nueva plataforma para pet-parents que les permite ubicar
+                        servicios verificados para mascotas. Cada establecimiento cuenta con toda la
+                        información necesaria para permitirle a los pet-parents elegir el más
+                        confiable.
+                    </p>
+
+                    <h1>¿Por qué Servicios verificados?</h1>
+                    <p>
+                        Usualmente pasan dos cosas cuando buscamos servicios para mascotas: La
+                        información que encontramos es insuficiente, incorrecta o no sabemos si la
+                        persona responsable está calificada para el servicio que presta y eso nos
+                        pone muchos obstáculos para brindarle el mejor cuidado a nuestras mascotas.
+                        <br /><br />
+                        En Poogle queremos cambiar esto, así que nos aseguramos de verificar la
+                        información de los establecimientos y las credenciales de lxs responsables
+                        para brindar una herramienta confiable: La opinion de otrxs pet-parents e
+                        información verídica del servicio.
+                    </p>
+                    <h1>¿Qué puedes hacer con Poogle?</h1>
+                    <p>
+                        <ul>
+                            <li>Buscar y filtrar establecimientos por categoría</li>
+                            <li>Visualizar información y servicios que ofrece el establecimiento</li>
+                            <li>Visualizar opiniones de otros pet-parents</li>
+                            <li>Opinar sobre los establecimientos </li>
+                        </ul>
+                    </p>
+                    <h1>Un establecimiento que conozco no está aquí.</h1>
+                    <p>
+                        Ve al menú lateral ☰ y elige la pestaña "Sugiere un lugar". Llena el formulario y en cuanto verifiquemos el establecimiento, lo pondremos en la página. ¡Muchas gracias por tu aportación!
+                    </p>
+                    <h1>Si tienes una duda que no hayamos respondido, contáctanos en pooglenetwork@gmail.com </h1>
+                </div>
             </div>
 
             <!---------- Suggest a place screen---------->
@@ -211,57 +246,67 @@
                 <div id="suggestscreentitle"><img src="images/assets/bannerSuggestMob.jpg" /></div>
                 <div id="suggestscreentext">
                     Para sugerir que aparezca un establecimiento en nuestro listado, por favor
-                    completa la información a continuación:
+                    completa la información a continuación y el equipo de Poogle se encargará de
+                    verificar el establecimiento a la brevedad:
                 </div>
 
-                <form id="suggestform">
-                    <div id="suggestscreencategory">Categoría:</div>
-                    <input
-                        id="suggestcategory"
-                        name="category"
-                        type="text"
-                        class="suggestitems"
-                        placeholder="Salud/Alojamiento/Lugares Pet Friendly/Tiendas de autoservicio/Educación/Protectoras de animales"
-                    />
+                <div id="suggestscreenname">Nombre:</div>
+                <input
+                    id="suggestname"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="Nombre del lugar que sugieres"
+                />
 
-                    <div id="suggestscreenwebsite">Website:</div>
-                    <input
-                        id="suggestwebsite"
-                        name="website"
-                        type="text"
-                        class="suggestitems"
-                        placeholder="O url de su página de Facebook..."
-                    />
+                <div id="suggestscreencategory">Categoría:</div>
+                <input
+                    id="suggestcategory"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="Salud/Alojamiento/Lugares Pet Friendly/Tiendas de autoservicio/Educación/Protectoras de animales"
+                />
 
-                    <div id="suggestscreenaddress">Dirección:</div>
-                    <input
-                        id="suggestaddress"
-                        name="address"
-                        type="text"
-                        class="suggestitems"
-                        placeholder="Calle - número - colonia - código postal"
-                    />
+                <div id="suggestscreenwebsite">Website:</div>
+                <input
+                    id="suggestwebsite"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="O url de su página de Facebook..."
+                />
 
-                    <div id="suggestscreentelephone">Teléfono:</div>
-                    <input
-                        id="suggesttelephone"
-                        name="telephone"
-                        type="text"
-                        class="suggestitems"
-                        placeholder="+ 52 (--- --- ----)"
-                    />
+                <div id="suggestscreenaddress">Dirección:</div>
+                <input
+                    id="suggestaddress"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="Calle - número - colonia - código postal"
+                />
 
-                    <div id="suggestscreenschedule">Horario de atención:</div>
-                    <input
-                        id="suggestschedule"
-                        name="schedule"
-                        type="text"
-                        class="suggestitems"
-                        placeholder="L-V 8:00 AM - 8:OO PM"
-                    />
+                <div id="suggestscreentelephone">Teléfono:</div>
+                <input
+                    id="suggesttelephone"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="+ 52 (--- --- ----)"
+                />
 
-                    <button id="submitsuggestion">ENVIAR SUGERENCIA</button>
-                </form>
+                <div id="suggestscreenschedule">Horario de atención:</div>
+                <input
+                    id="suggestschedule"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="L-V 8:00 AM - 8:00 PM"
+                />
+
+                <div id="suggestscreenperks">Servicios que ofrece:</div>
+                <input
+                    id="suggestperks"
+                    type="text"
+                    class="suggestitems"
+                    placeholder="Rayos X, Transporte, Estética"
+                />
+
+                <button id="submitsuggestion">ENVIAR SUGERENCIA</button>
             </div>
         </main>
 
