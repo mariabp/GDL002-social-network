@@ -50,10 +50,6 @@
     visibility: hidden;
 } */
 
-::placeholder {
-    color: whitesmoke;
-}
-
 #username {
     grid-area: username;
     display: flex;

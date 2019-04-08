@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
 * {
-
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-size: 12pt;
     font-weight: 300;
-
 }
 
 header {
@@ -14,8 +11,11 @@ header {
     display: grid;
     grid-template-columns: 1fr 15vw 15vw 15vw 15vw 15vw 15vw 1fr;
     grid-template-areas: ". btnmenu searchbar searchbar searchbar searchbar btnsearch .";
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    /* margin-top: 0.5rem;
+    margin-bottom: 0.5rem; */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(190, 33, 109, 0.87);
 }
 
 body {
@@ -58,7 +58,6 @@ img {
     width: 9rem;
 }
 
-
 /* Open sidenav menu button */
 
 .btnmenu {
@@ -91,8 +90,7 @@ img {
 
 /*Elements within sidenavBar*/
 
-.sidenavItem,
-.dropdown-btn {
+.sidenavItem, .dropdown-btn {
     padding: 1.5rem 0.5rem 1.5rem 1rem;
     font-size: 12pt;
     color: rgba(129, 129, 129, 1);
@@ -122,7 +120,6 @@ img {
     text-decoration: none;
 }
 
-
 #suggestPlace {
     /* background-color: rgba(190, 33, 108, 1); */
     color: rgba(129, 129, 129, 1);
@@ -138,11 +135,9 @@ img {
     background-color: rgba(190, 33, 108, 1);
 }
 
-.sidenavItem:hover,
-.dropdown-btn:hover {
+.sidenavItem:hover, .dropdown-btn:hover {
     color: rgba(241, 241, 241, 1);
     background-color: rgba(193, 217, 58, 1);
-
 }
 
 .subm:hover {
@@ -177,9 +172,7 @@ img {
     display: none;
     width: 100%;
     min-height: 100%;
-    /* allow for content off the bottom of the page */
-    position: absolute;
-    /* or absolute if the user needs to scroll for more content */
+    /* position: absolute; */
 }
 
 .active {
