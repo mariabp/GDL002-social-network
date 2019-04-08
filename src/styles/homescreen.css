@@ -1,27 +1,8 @@
 #homescreen {
     grid-area: content;
-    /* display: none; */
     grid-template-columns: 1fr 15vw 15vw 15vw 15vw 15vw 15vw 1fr;
-    grid-template-rows: 3rem 0.5rem auto 3rem 0.5rem auto 0.5rem 3rem;
-
-    grid-template-areas:    "header header header header header header header header"
-                            ". . . . . . . ."
-                            ". mainimage mainimage mainimage mainimage mainimage mainimage ."
-                            ". categories categories categories categories categories categories ."
-                            ". . . . . . . ."
-                            ". feed feed feed feed feed feed ."
-                            ". . . . . . . ."
-                            "footer footer footer footer footer footer footer footer";
-    /* visibility: visible; */
-}
-
-header {
-    grid-area: header;
-    display: grid;
-    grid-template-columns: 1fr 15vw 15vw 15vw 15vw 15vw 15vw 1fr;
-    grid-template-areas: ". btnmenu searchbar searchbar searchbar searchbar btnsearch .";
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    grid-template-rows: auto 3rem 0.5rem auto 0.5rem 3rem;
+    grid-template-areas: "mainimage mainimage mainimage mainimage mainimage mainimage mainimage mainimage" ". categories categories categories categories categories categories ." ". . . . . . . ." "feed feed feed feed feed feed feed feed" ". . . . . . . ." "footer footer footer footer footer footer footer footer";
 }
 
 .headerelements {
@@ -40,7 +21,12 @@ header {
     font-size: 12pt;
     padding: 0.25rem;
     border: solid 1px;
-    border-radius: 0.15rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+#searchbar ::placeholder {
+    color: #181818;
 }
 
 #btnsearch {
@@ -48,6 +34,7 @@ header {
 }
 
 /* Slideshow */
+
 #mainimg {
     grid-area: mainimage;
     background-size: cover;
@@ -72,31 +59,24 @@ header {
     0% {
         left: 0;
     }
-
     25% {
         left: 0;
     }
-
     45% {
         left: -100%;
     }
-
     50% {
         left: -100%;
     }
-
     70% {
         left: -200%;
     }
-
     75% {
         left: -200%;
     }
-
     95% {
         left: -300%;
     }
-
     100% {
         left: -300%;
     }

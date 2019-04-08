@@ -19,7 +19,8 @@ const suggestForm = document.querySelector('#suggestform');
 
 const reviewContainer = document.querySelector('#reviewcontainer');
 
-const db = firebase.firestore();
+let db = firebase.firestore();
+
 //Función que muestra elementos según la categoría seleccionada
 
 const showCategory = (event) => {
@@ -159,7 +160,7 @@ const showCategory = (event) => {
 
 		let btnLike = document.createElement('div');
 		btnLike.setAttribute('id', 'btnlike');
-		btnLike.innerHTML = '<i class="far fa-thumbs-up"></i>';
+        btnLike.innerHTML = '<i class="far fa-thumbs-up"></i>';
 
 		let btnMore = document.createElement('div');
 		btnMore.setAttribute('id', 'btnmore');
