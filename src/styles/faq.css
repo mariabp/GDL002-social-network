@@ -1,23 +1,19 @@
-/* #faqscreen {
+#faqscreen {
     grid-area: content;
     grid-template-columns: auto;
     grid-template-rows: auto 1rem 2rem 0.5rem auto 0.5rem;
-    grid-template-areas:
-        "faqimage"
-        "."
-        "faqtitle"
-        "."
-        "faqtext"
-        ".";
-} */
-
+    grid-template-areas: "faqimage" "." "faqtitle" "." "faqtext" ".";
+}
 
 #faqimage {
-    /* height: auto;
+    height: 25%;
+    padding: 0;
+    margin: 0;
+    object-fit: contain;
     grid-area: faqimage;
-    display: flex;
+    display: inline-block;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 }
 
 #faqtitle {

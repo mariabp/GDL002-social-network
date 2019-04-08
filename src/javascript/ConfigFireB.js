@@ -10,3 +10,4 @@ let config = {
 
 //Declare vendors database as db
 firebase.initializeApp(config);
+const db = firebase.firestore();

@@ -15,37 +15,49 @@ function register() {
             let errorCode = error.code;
             let errorMessage = error.message;
         });
+}
 
-    function logIn() {
-        let emailAdd = document.getElementById('useremail').value;
-        let passwordAdd = document.getElementById('userpassword').value;
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(emailAdd, passwordAdd)
-            .catch(function(error) {
-                // Handle Errors here.
-                let errorCode = error.code;
-                let errorMessage = error.message;
-            });
+function logIn() {
+    let emailAdd = document.getElementById('useremail').value;
+    let passwordAdd = document.getElementById('userpassword').value;
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(emailAdd, passwordAdd)
+        .catch(function(error) {
+            // Handle Errors here.
+            let errorCode = error.code;
+            let errorMessage = error.message;
+        });
+}
+
+document.getElementById('registerbtn').addEventListener('click', logIn);
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        document.getElementById('homescreen').classList.add('active');
+        document.getElementById('register').classList.remove('active');
+    } else {
+        // No user is signed in.
+        document.getElementById('homescreen').classList.remove('active');
+        document.getElementById('register').classList.add('active');
     }
+});
 
-    document.getElementById('registerbtn').addEventListener('click', logIn);
-
-    function saveData(email, names) {
-        let user = firebase.auth().currentUser;
-        db.collection('users')
-            .doc(user.uid)
-            .set({
-                name: names,
-                email: email,
-            })
-            .then(function() {
-                console.log('Document successfully written!');
-            })
-            .catch(function(error) {
-                console.error('Error writing document: ', error);
-            });
-    }
+function saveData(email, names) {
+    let user = firebase.auth().currentUser;
+    db.collection('users')
+        .doc(user.uid)
+        .set({
+            name: names,
+            email: email,
+        })
+        .then(function() {
+            console.log('Document successfully written!');
+        })
+        .catch(function(error) {
+            console.error('Error writing document: ', error);
+        });
 }
 
 function check() {

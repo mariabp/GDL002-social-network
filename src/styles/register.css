@@ -2,20 +2,30 @@
     grid-area: content;
     grid-template-columns: 1rem 1fr 1rem;
     grid-template-rows: 1rem auto 0.5rem 3rem 0.5rem 10rem 3rem 0.5rem 2rem 2rem 3rem 0.5rem 3rem;
-    grid-template-areas: ". . ."". registerimage ."". . ."". username ."". . ."". emailandpassword ."
-        ". createuserbtn ."". . ."". registeredusers ."". ortext ."". facebookregister ."". . ."
-        " . googleregister .";
+    grid-template-areas: ". . ."". registerimage ."". . ."". username ."". . ."". emailandpassword ." ". createuserbtn ."". . ."". registeredusers ."". ortext ."". facebookregister ."". . ." " . googleregister .";
     background-image: url("https://i.imgur.com/iLgyfJg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
 }
 
+.logo {
+    height: 8rem;
+    object-fit: contain;
+}
+
 #registerimg {
     grid-area: registerimage;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: rgba(87, 75, 98, 0.5);
+    border-radius: 1rem;
+}
+
+#registerimg p {
+    margin: 5%;
 }
 
 .registerimage {
@@ -25,6 +35,13 @@
     height: auto;
     width: 100%;
     object-fit: cover;
+}
+
+#registerimg p {
+    color: whitesmoke;
+    font-size: 16pt;
+    font-weight: 500;
+    text-align: center;
 }
 
 /* img {
