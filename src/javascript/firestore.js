@@ -15,7 +15,7 @@ const subShoppingBtn = document.querySelector('#subshopping');
 const subEducationBtn = document.querySelector('#subeducation');
 const subNonProfitBtn = document.querySelector('#subnonprofit');
 
-const suggestForm = document.querySelector('#suggestform');
+const suggestForm = document.querySelector('#submitsuggestion');
 
 const reviewContainer = document.querySelector('#reviewcontainer');
 
